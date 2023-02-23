@@ -14,6 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import Logo from "./logo";
 
 interface MyProps {
   children: React.ReactNode;
@@ -51,6 +52,11 @@ const Navbar = (props: { path: string }) => {
       {...props}
     >
       <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
+        <Flex align="center" mr={5}>
+          <Heading as="h1" size="lg" letterSpacing={"tighter"}>
+            <Logo />
+          </Heading>
+        </Flex>
         <Stack
           direction={{ base: "column", md: "row" }}
           display={{ base: "none", md: "flex" }}
@@ -59,9 +65,6 @@ const Navbar = (props: { path: string }) => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/" path={path}>
-            About
-          </LinkItem>
           <LinkItem href="/resume" path={path}>
             Resume
           </LinkItem>
@@ -73,7 +76,7 @@ const Navbar = (props: { path: string }) => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1} alignContent="rigth">
+        <Box flex={1} align="right">
           <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu>
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />

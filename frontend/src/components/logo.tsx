@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
+import { AtSignIcon } from "@chakra-ui/icons";
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -16,6 +17,7 @@ const Logo = () => {
   return (
     <Link href="/">
       <LogoBox>
+        <AtSignIcon />
         <Text
           color={useColorModeValue("gray.800", "whiteAlpha.900")}
           fontFamily="M PLUS Rounded 1c"
