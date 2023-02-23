@@ -1,15 +1,22 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
-import { Container } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Home = () => {
   return (
     <Container>
-      <div>Test</div>
+      <Box borderRadius="lg" bg="teal" p={3} mb={6} alignContent="center">
+        Hi, I&apos;m a full-stack developer
+      </Box>
+      <Box display={{ md: "flex" }}>
+        <Box flexGrow={1}>
+          <Heading as="h2" variant="page title">
+            Carlos Ayala
+          </Heading>
+          <p>Developer</p>
+        </Box>
+      </Box>
     </Container>
   );
 };
