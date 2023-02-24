@@ -1,11 +1,11 @@
-import "@/styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../components/layouts/main";
 import type { AppProps } from "next/app";
+import theme from "@/libs/theme";
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme} cssVarsRoot="body">
       <Layout router={router}>
         <Component {...pageProps} key={router.route} />
       </Layout>

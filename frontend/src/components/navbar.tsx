@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "./logo";
+import ThemeToggle from "./theme-toggle";
 
 interface MyProps {
   children: React.ReactNode;
@@ -31,7 +32,7 @@ const LinkItem = ({ href, path, children }: MyProps) => {
       href={href}
       p={2}
       bg={active ? "glassTeal" : undefined}
-      color={active ? "#202023" : inactiveColor}
+      color={active ? "#000F1A" : inactiveColor}
     >
       {children}
     </Link>
@@ -46,7 +47,7 @@ const Navbar = (props: { path: string }) => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue("#ffffff40", "#202023")}
+      bg={useColorModeValue("#ffffff40", "#000F1A10")}
       style={{ backdropFilter: "blur(10px" }}
       zIndex={1}
       {...props}
@@ -77,6 +78,7 @@ const Navbar = (props: { path: string }) => {
         </Stack>
 
         <Box flex={1} align="right">
+          <ThemeToggle />
           <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu>
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
