@@ -1,5 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
+import { Poppins } from "@next/font/google";
+
+const nextFont = Poppins({
+  weight: ["300", "700"],
+  display: "swap",
+  subsets: ["latin"],
+});
 
 const styles = {
   glogal: (props) => ({
@@ -32,7 +39,7 @@ const components = {
 };
 
 const fonts = {
-  heading: "'M PLUS Rounded 1c'",
+  heading: nextFont.style.fontFamily,
 };
 
 const colors = {
