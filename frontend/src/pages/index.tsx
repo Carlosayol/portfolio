@@ -1,5 +1,6 @@
 import { Inter } from "@next/font/google";
 import { Box, Container, Heading, Image, useColorModeValue } from "@chakra-ui/react";
+import Section from "@/components/section";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,12 @@ const Home = () => {
           />
         </Box>
       </Box>
+      <Section>
+        <Heading as="h3" variant="section-title">
+          Work
+        </Heading>
+        <p>Paragraph</p>
+      </Section>
     </Container>
   );
 };
