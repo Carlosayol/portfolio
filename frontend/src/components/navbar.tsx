@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "./logo";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "./themeToggle";
 
 interface MyProps {
   children: React.ReactNode;

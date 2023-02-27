@@ -61,7 +61,7 @@ const Home = () => {
           Likes
         </Heading>
         <Paragraph>
-          Music, Playing Violin & Piano, Biking, Reading, Video Games, Coding, Artificial Intelligence, Good Vibes
+          Music, Playing Violin & Piano, Biking, Reading, Video Games, Coding, Artificial Intelligence, Good Vibes.
         </Paragraph>
       </Section>
     </Container>
