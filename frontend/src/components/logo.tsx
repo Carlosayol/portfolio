@@ -24,7 +24,7 @@ const Logo = () => {
           fontWeight="bold"
           ml={3}
         >
-          About Me
+          About
         </Text>
       </LogoBox>
     </Link>

@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, StyleFunctionProps } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { Poppins } from "@next/font/google";
 
@@ -9,9 +9,9 @@ const nextFont = Poppins({
 });
 
 const styles = {
-  glogal: (props) => ({
+  glogal: (props: StyleFunctionProps) => ({
     body: {
-      bg: mode("#f0e7db", "#000F1A")(props),
+      bg: mode("#E3B6CA", "#000F1A")(props),
     },
   }),
 };
@@ -31,7 +31,7 @@ const components = {
     },
   },
   Link: {
-    baseStyle: (props) => ({
+    baseStyle: (props: StyleFunctionProps) => ({
       color: mode("#3d7aed", "#ff63c3")(props),
       textUnderlineOffset: 3,
     }),

@@ -1,14 +1,18 @@
 import Head from "next/head";
 import { GridItemStyle } from "../gridItem";
 
-const Layout = ({ children, title }) => {
-  const t = `${title} - Takuya Matsuyama`;
+interface Props {
+  children: React.ReactNode;
+  title: string;
+}
+
+const Layout = ({ children, title }: Props) => {
+  const t = `${title} - Carlos Ayala`;
   return (
     <>
       {title && (
         <Head>
           <title>{t}</title>
-          <meta name="twitter:title" content={t} />
           <meta property="og:title" content={t} />
         </Head>
       )}
