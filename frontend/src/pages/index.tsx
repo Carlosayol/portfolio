@@ -4,13 +4,17 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   Heading,
+  HStack,
   Icon,
   IconButton,
   Image,
   Link,
   SimpleGrid,
+  Spacer,
   useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
 import Section from "@/components/section";
 import Paragraph from "@/components/paragraph";
@@ -30,7 +34,7 @@ const Home = () => {
           </Heading>
           <p>Software Engineer | Full Stack Developer</p>
         </Box>
-        <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} align="center">
+        <Flex flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} justifyContent="center">
           <Image
             borderColor={useColorModeValue("blackAlpha.800", "whiteAlpha.800")}
             borderWidth={2}
@@ -41,7 +45,7 @@ const Home = () => {
             src="images/carlos.jpg"
             alt="Profile Image"
           />
-        </Box>
+        </Flex>
       </Box>
       <Section>
         <Heading as="h3" variant="section-title">
@@ -59,14 +63,14 @@ const Home = () => {
           Likes
         </Heading>
         <Paragraph>
-          Music, Playing Violin & Piano, Biking, Reading, Video Games, Coding, Artificial Intelligence, Good Vibes.
+          Music, Playing Violin &amp; Piano, Biking, Reading, Video Games, Coding, Artificial Intelligence, Good Vibes.
         </Paragraph>
       </Section>
       <Section>
         <Heading as="h3" variant="section-title">
           Social Media
         </Heading>
-        <SimpleGrid columns={4} gap={2} align="center">
+        <HStack px={10} justifyContent="space-between">
           <Link href="https://github.com/Carlosayol" target="_blank">
             <IconButton
               variant="ghost"
@@ -103,12 +107,12 @@ const Home = () => {
               colorScheme="teal"
             />
           </Link>
-        </SimpleGrid>
-        <Box my={4} align="center">
+        </HStack>
+        <Flex my={4} justifyContent="center">
           <Button as={NextLink} href="/works" scroll={false} rightIcon={<DownloadIcon />} colorScheme="teal">
             Download CV
           </Button>
-        </Box>
+        </Flex>
       </Section>
     </Container>
   );
