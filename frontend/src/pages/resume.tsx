@@ -1,3 +1,4 @@
+import ResumeCard from "@/components/resumeCard";
 import Section from "@/components/section";
 import { Box, Container, Grid, Heading, SimpleGrid, StackDivider, VStack } from "@chakra-ui/react";
 
@@ -13,9 +14,18 @@ const Resume = () => {
             Experience
           </Heading>
           <VStack spacing={4} align="stretch">
-            <Box h="40px">1</Box>
-            <Box h="40px">2</Box>
-            <Box h="40px">3</Box>
+            <ResumeCard
+              duration="2016 - present"
+              title="Test"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              location="Colombia"
+            />
+            <ResumeCard
+              duration="2016 - 2022"
+              title="Test 2"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              location="Canada"
+            />
           </VStack>
         </Section>
         <Section>
@@ -23,9 +33,12 @@ const Resume = () => {
             Education
           </Heading>
           <VStack spacing={4} align="stretch">
-            <Box h="40px">1</Box>
-            <Box h="40px">2</Box>
-            <Box h="40px">3</Box>
+            <ResumeCard
+              duration="2016 - 2022"
+              title="Test"
+              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              location="Colombia"
+            />
           </VStack>
         </Section>
       </SimpleGrid>
