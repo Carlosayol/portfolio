@@ -7,7 +7,7 @@ import githubThumb from "public/images/githubThumb.png";
 const Projects = () => {
   return (
     <Container>
-      <Heading as="h3" fontSize={20} mb={4}>
+      <Heading as="h3" variant="section-title">
         Projects
       </Heading>
       <SimpleGrid columns={[1, 1, 2]} gap={6}>
