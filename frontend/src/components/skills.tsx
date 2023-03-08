@@ -1,20 +1,20 @@
 import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import Skill from "./skill";
 
 const Skills = () => {
   return (
     <Box>
-      {/* MAKE THIS A COMPONENT */}
       <Heading as="h3" fontSize={20} my={2}>
         Expert
       </Heading>
-      <SimpleGrid columns={4} gap={2}>
-        <Text>Test</Text>
-        <Text>Test</Text>
-        <Text>Test</Text>
-        <Text>Test</Text>
-        <Text>Test</Text>
+      <SimpleGrid columns={4} gap={2} spacingY={5}>
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
       </SimpleGrid>
-      {/* MAKE THIS A COMPONENT */}
       <Heading as="h3" fontSize={20} my={2}>
         Proficient
       </Heading>

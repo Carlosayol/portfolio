@@ -1,11 +1,11 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-interface MyProps {
+interface Props {
   children: React.ReactNode;
   title: String;
 }
 
-const Entry = ({ children, title }: MyProps) => {
+const Entry = ({ children, title }: Props) => {
   return (
     <Box>
       <Heading as="h3" variant="section-title">
