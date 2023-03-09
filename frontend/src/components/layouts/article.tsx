@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { GridItemStyle } from "../gridItem";
 
 interface Props {

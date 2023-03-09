@@ -7,20 +7,16 @@ import {
   Flex,
   Heading,
   HStack,
-  Icon,
   IconButton,
   Image,
   Link,
-  SimpleGrid,
-  Spacer,
   useColorModeValue,
-  VStack,
 } from "@chakra-ui/react";
+import { IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from "react-icons/io5";
+import { DownloadIcon } from "@chakra-ui/icons";
+
 import Section from "@/components/section";
 import Paragraph from "@/components/paragraph";
-import { AboutSection } from "@/components/about";
-import { DownloadIcon } from "@chakra-ui/icons";
-import { IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from "react-icons/io5";
 
 const inter = Inter({ subsets: ["latin"] });
 

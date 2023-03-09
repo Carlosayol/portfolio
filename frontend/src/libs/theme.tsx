@@ -36,6 +36,15 @@ const components = {
       textUnderlineOffset: 3,
     }),
   },
+  List: {
+    baseStyle: (props: StyleFunctionProps) => ({
+      item: {
+        "&::marker": {
+          color: mode("teal", "teal.200")(props),
+        },
+      },
+    }),
+  },
 };
 
 const fonts = {

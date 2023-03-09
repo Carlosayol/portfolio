@@ -10,13 +10,13 @@ export const Title = ({ children }: Props) => {
   return (
     <Box>
       <NextLink href="/projects">
-        <Link>Works</Link>
+        <Link>Projects</Link>
       </NextLink>
       <span>
         {" "}
         <ChevronRightIcon />{" "}
       </span>
-      <Heading display="inline-block" as="h3" fontSize={20} mb={4}>
+      <Heading display="inline-block" as="h3" fontSize={20} mb={4} textTransform="capitalize">
         {children}
       </Heading>
     </Box>
