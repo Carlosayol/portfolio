@@ -27,7 +27,7 @@ const inter = Inter({ subsets: ["latin"] });
 const Home = () => {
   return (
     <Container>
-      <Box display={{ md: "flex" }}>
+      <Box display={{ md: "flex" }} mb={12}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page title">
             Carlos Ayala
@@ -47,10 +47,7 @@ const Home = () => {
           />
         </Flex>
       </Box>
-      <Section>
-        <Heading as="h3" variant="section-title">
-          About Me
-        </Heading>
+      <Section title={"About Me"}>
         <Paragraph>
           Software Engineer with 2+ years of experience as a FullStack Developer designing, developing and maintaining
           Shopify applications, web applications, databases, APIs and other backend solutions with NodeJS, Python and Go
@@ -58,18 +55,12 @@ const Home = () => {
           knowledge and skills in developing innovative solutions using new technologies and the best practices.
         </Paragraph>
       </Section>
-      <Section>
-        <Heading as="h3" variant="section-title">
-          Likes
-        </Heading>
+      <Section title={"Likes"}>
         <Paragraph>
           Music, Playing Violin &amp; Piano, Biking, Reading, Video Games, Coding, Artificial Intelligence, Good Vibes.
         </Paragraph>
       </Section>
-      <Section>
-        <Heading as="h3" variant="section-title">
-          Social Media
-        </Heading>
+      <Section title={"Social Media"}>
         <HStack px={10} justifyContent="space-between">
           <Link href="https://github.com/Carlosayol" target="_blank">
             <IconButton

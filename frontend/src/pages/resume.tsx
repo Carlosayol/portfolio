@@ -3,26 +3,21 @@ import { Badge, Box, Container, Text } from "@chakra-ui/react";
 import Entry from "@/components/entry";
 import ResumeInfo from "@/components/resumeInfo";
 import Skills from "@/components/skills";
+import Section from "@/components/section";
+import Languages from "@/components/languages";
 
 const Resume = () => {
   return (
     <Container>
-      <Entry title={"Resume"}>
+      <Section title={"Resume"}>
         <ResumeInfo />
-      </Entry>
-      <Entry title={"Skills"}>
+      </Section>
+      <Section title={"Skills"}>
         <Skills />
-      </Entry>
-      <Entry title={"Languages"}>
-        <Box>
-          <Text>
-            Spanish <Badge>Native</Badge>
-          </Text>
-          <Text>
-            English <Badge>Advanced</Badge>
-          </Text>
-        </Box>
-      </Entry>
+      </Section>
+      <Section title={"Languages"}>
+        <Languages />
+      </Section>
     </Container>
   );
 };

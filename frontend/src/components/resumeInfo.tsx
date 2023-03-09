@@ -7,11 +7,11 @@ const ResumeInfo = () => {
   return (
     <Box>
       <SimpleGrid columns={2} gap={2}>
-        <Section>
+        <Box>
           <Heading as="h3" fontSize={20} my={2}>
             Experience
           </Heading>
-          <VStack spacing={4} align="stretch">
+          <VStack spacing={6} align="stretch">
             <ResumeCard
               duration="2016 - present"
               title="Test"
@@ -25,8 +25,8 @@ const ResumeInfo = () => {
               location="Canada"
             />
           </VStack>
-        </Section>
-        <Section>
+        </Box>
+        <Box>
           <Heading as="h3" fontSize={20} my={2}>
             Education
           </Heading>
@@ -38,7 +38,7 @@ const ResumeInfo = () => {
               location="Colombia"
             />
           </VStack>
-        </Section>
+        </Box>
       </SimpleGrid>
     </Box>
   );

@@ -6,7 +6,14 @@ const Skill = () => {
   return (
     <Box>
       <Tooltip label="ReactJS" fontSize="md">
-        <IconButton variant="ghost" fontSize="48px" aria-label="ReactJS" icon={<SiReact />} colorScheme="teal" />
+        <IconButton
+          variant="ghost"
+          fontSize="48px"
+          isRound
+          aria-label="ReactJS"
+          icon={<SiReact />}
+          colorScheme="teal"
+        />
       </Tooltip>
     </Box>
   );

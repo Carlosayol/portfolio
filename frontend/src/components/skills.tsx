@@ -4,7 +4,7 @@ import Skill from "./skill";
 const Skills = () => {
   return (
     <Box>
-      <Heading as="h3" fontSize={20} my={2}>
+      <Heading as="h3" fontSize={20} my={4}>
         Expert
       </Heading>
       <SimpleGrid columns={4} gap={2} spacingY={5}>
@@ -15,18 +15,26 @@ const Skills = () => {
         <Skill />
         <Skill />
       </SimpleGrid>
-      <Heading as="h3" fontSize={20} my={2}>
+      <Heading as="h3" fontSize={20} my={4}>
         Proficient
       </Heading>
-      <Text>Test</Text>
-      <Heading as="h3" fontSize={20} my={2}>
+      <SimpleGrid columns={4} gap={2} spacingY={5}>
+        <Skill />
+      </SimpleGrid>
+      <Heading as="h3" fontSize={20} my={4}>
         Beginner
       </Heading>
-      <Text>Test</Text>
-      <Heading as="h3" fontSize={20} my={2}>
+      <SimpleGrid columns={4} gap={2} spacingY={5}>
+        <Skill />
+        <Skill />
+      </SimpleGrid>
+      <Heading as="h3" fontSize={20} my={4}>
         Want to learn
       </Heading>
-      <Text>Test</Text>
+      <SimpleGrid columns={4} gap={2} spacingY={5}>
+        <Skill />
+        <Skill />
+      </SimpleGrid>
     </Box>
   );
 };
