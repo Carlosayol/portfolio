@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Badge, Box, Flex, Heading, IconButton, Link, Spacer } from "@chakra-ui/react";
+import { Badge, Flex, Heading, IconButton, Link, Spacer } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { IoLogoGithub } from "react-icons/io5";
 

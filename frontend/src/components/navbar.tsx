@@ -14,8 +14,9 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import Logo from "./logo";
-import ThemeToggle from "./themeToggle";
+
+import Logo from "@/components/Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 interface MyProps {
   children: React.ReactNode;

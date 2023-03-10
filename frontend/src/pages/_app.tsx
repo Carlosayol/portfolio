@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Layout from "../components/layouts/main";
 import type { AppProps } from "next/app";
+
+import Layout from "@/components/layouts/Main";
 import theme from "@/libs/theme";
 
 const App = ({ Component, pageProps, router }: AppProps) => {

@@ -15,8 +15,8 @@ import {
 import { IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from "react-icons/io5";
 import { DownloadIcon } from "@chakra-ui/icons";
 
-import Section from "@/components/section";
-import Paragraph from "@/components/paragraph";
+import Section from "@/components/Section";
+import Paragraph from "@/components/Paragraph";
 
 const inter = Inter({ subsets: ["latin"] });
 

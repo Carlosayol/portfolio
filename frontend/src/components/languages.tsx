@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Text } from "@chakra-ui/react";
+import { Badge, Box, Text } from "@chakra-ui/react";
 
 const Languages = () => {
   return (

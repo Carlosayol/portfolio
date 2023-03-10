@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { GridItemStyle } from "../gridItem";
+import { GridItemStyle } from "../GridItem";
 
 interface Props {
   children: React.ReactNode;

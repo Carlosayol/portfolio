@@ -1,7 +1,7 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 
-import { ProjectGridItem } from "@/components/gridItem";
 import githubThumb from "public/images/githubThumb.png";
+import { ProjectGridItem } from "@/components/GridItem";
 
 const ProjectsGrid = () => {
   return (

@@ -1,7 +1,7 @@
 import { Container } from "@chakra-ui/react";
 
-import Section from "@/components/section";
-import ProjectsGrid from "@/components/projectsGrid";
+import Section from "@/components/Section";
+import ProjectsGrid from "@/components/ProjectsGrid";
 
 const Projects = () => {
   return (

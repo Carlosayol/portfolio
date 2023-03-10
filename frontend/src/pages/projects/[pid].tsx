@@ -1,24 +1,9 @@
-import {
-  Badge,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  HStack,
-  IconButton,
-  ListItem,
-  SimpleGrid,
-  Spacer,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, ListItem, SimpleGrid, UnorderedList } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { IoLogoGithub } from "react-icons/io5";
 
-import Layout from "@/components/layouts/article";
-import Paragraph from "@/components/paragraph";
-import Title from "@/components/title";
-import Link from "next/link";
+import Layout from "@/components/layouts/Article";
+import Paragraph from "@/components/Paragraph";
+import Title from "@/components/Title";
 
 const Work = () => {
   const router = useRouter();

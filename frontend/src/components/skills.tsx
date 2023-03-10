@@ -1,5 +1,6 @@
-import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
-import Skill from "./skill";
+import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
+
+import Skill from "@/components/Skill";
 
 const Skills = () => {
   return (

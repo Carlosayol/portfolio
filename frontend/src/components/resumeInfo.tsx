@@ -1,7 +1,6 @@
 import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 
-import ResumeCard from "./resumeCard";
-import Section from "./section";
+import ResumeCard from "@/components/ResumeCard";
 
 const ResumeInfo = () => {
   return (

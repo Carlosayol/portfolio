@@ -1,10 +1,9 @@
-import { Badge, Box, Container, Text } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
-import Entry from "@/components/entry";
-import ResumeInfo from "@/components/resumeInfo";
-import Skills from "@/components/skills";
-import Section from "@/components/section";
-import Languages from "@/components/languages";
+import ResumeInfo from "@/components/ResumeInfo";
+import Skills from "@/components/Skills";
+import Section from "@/components/Section";
+import Languages from "@/components/Languages";
 
 const Resume = () => {
   return (
