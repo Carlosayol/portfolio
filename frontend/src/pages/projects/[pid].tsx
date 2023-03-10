@@ -1,11 +1,24 @@
-import { Badge, Box, Button, Container, Flex, Heading, ListItem, SimpleGrid, UnorderedList } from "@chakra-ui/react";
+import {
+  Badge,
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  HStack,
+  IconButton,
+  ListItem,
+  SimpleGrid,
+  Spacer,
+  UnorderedList,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import NextLink from "next/link";
 import { IoLogoGithub } from "react-icons/io5";
 
 import Layout from "@/components/layouts/article";
 import Paragraph from "@/components/paragraph";
-import { Title } from "@/components/project";
+import Title from "@/components/title";
+import Link from "next/link";
 
 const Work = () => {
   const router = useRouter();
@@ -14,15 +27,8 @@ const Work = () => {
   return (
     <Layout title="ReviewsFS">
       <Container mt={{ base: 4, md: 0 }}>
-        <Title>
-          {pid} <Badge colorScheme="teal">2016</Badge>
-        </Title>
+        <Title id={pid ?? ""} />
         <Paragraph>Write reviews about anything</Paragraph>
-        <Flex my={4} justifyContent="center">
-          <Button as={NextLink} href="/works" scroll={false} rightIcon={<IoLogoGithub />} colorScheme="teal">
-            Github
-          </Button>
-        </Flex>
         <SimpleGrid columns={2} gap={2} my={6}>
           <Box>
             <Heading as="h3" fontSize={20} my={2}>
