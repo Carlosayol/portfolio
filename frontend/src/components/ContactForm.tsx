@@ -1,4 +1,15 @@
-import { Box, FormControl, FormLabel, HStack, Input, Textarea, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  HStack,
+  Input,
+  Textarea,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { IoSend } from "react-icons/io5";
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -45,7 +56,7 @@ const ContactForm = () => {
             />
           </FormControl>
         </HStack>
-        <FormControl isRequired>
+        <FormControl isRequired mb={6}>
           <FormLabel>Message</FormLabel>
           <Textarea
             focusBorderColor={useColorModeValue("teal.600", "teal.200")}
@@ -54,6 +65,11 @@ const ContactForm = () => {
             placeholder="Your Message"
           />
         </FormControl>
+        <Flex my={4} justifyContent="center">
+          <Button colorScheme="teal" rightIcon={<IoSend />}>
+            Send Message
+          </Button>
+        </Flex>
       </form>
     </Box>
   );
