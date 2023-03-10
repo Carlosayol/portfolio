@@ -10,7 +10,7 @@ interface MyProps {
 const ResumeCard = ({ title, duration, description, location }: MyProps) => {
   return (
     <Box w="100%">
-      <Badge>{duration}</Badge>
+      <Badge colorScheme="teal">{duration}</Badge>
       <Text mt={2} fontSize={20} fontWeight="bold">
         {title}
       </Text>
