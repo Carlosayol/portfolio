@@ -11,62 +11,49 @@ import {
 } from "@chakra-ui/react";
 import { IoSend } from "react-icons/io5";
 import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface Inputs {
+  email: string;
+  name: string;
+  message: string;
+}
 
 const ContactForm = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
+  const { register, handleSubmit } = useForm<Inputs>();
 
-  const handleMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const value = e.target.value;
-    setMessage(value);
-  };
-
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setEmail(value);
-  };
-
-  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setName(value);
-  };
+  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
 
   return (
     <Box>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <HStack mb={4}>
           <FormControl isRequired>
-            <FormLabel>Email</FormLabel>
             <Input
+              {...register("email")}
               focusBorderColor={useColorModeValue("teal.600", "teal.200")}
-              value={email}
-              onChange={handleEmail}
               type="email"
               placeholder="Email Address"
             />
           </FormControl>
           <FormControl>
-            <FormLabel>Full Name</FormLabel>
             <Input
+              {...register("name")}
               focusBorderColor={useColorModeValue("teal.600", "teal.200")}
-              value={name}
-              onChange={handleName}
               placeholder="Full Name"
+              type="text"
             />
           </FormControl>
         </HStack>
         <FormControl isRequired mb={6}>
-          <FormLabel>Message</FormLabel>
           <Textarea
+            {...register("message")}
             focusBorderColor={useColorModeValue("teal.600", "teal.200")}
-            value={message}
-            onChange={handleMessage}
             placeholder="Your Message"
           />
         </FormControl>
         <Flex my={4} justifyContent="center">
-          <Button colorScheme="teal" rightIcon={<IoSend />}>
+          <Button type="submit" colorScheme="teal" rightIcon={<IoSend />}>
             Send Message
           </Button>
         </Flex>

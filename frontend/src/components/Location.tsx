@@ -13,7 +13,7 @@ const Location = () => {
           referrerPolicy="no-referrer-when-downgrade"
         />
       </AspectRatio>
-      <SimpleGrid columns={2} spacing={10} my={4}>
+      <SimpleGrid columns={[1, 1, 2]} spacing={2} my={4}>
         <Info title="phone" data="+57 302 4318825" />
         <Info title="email" data="carlosaolar@gmail.com" />
       </SimpleGrid>
