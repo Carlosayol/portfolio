@@ -22,7 +22,9 @@ interface Inputs {
 const ContactForm = () => {
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
+  const onSubmit: SubmitHandler<Inputs> = (formData) => {
+    window.location.href = `mailto:carlosaolar@gmail.com?subject=Personal Website - ${formData.name}&body=${formData.message}`;
+  };
 
   return (
     <Box>
@@ -36,7 +38,7 @@ const ContactForm = () => {
               placeholder="Email Address"
             />
           </FormControl>
-          <FormControl>
+          <FormControl isRequired>
             <Input
               {...register("name")}
               focusBorderColor={useColorModeValue("teal.600", "teal.200")}
