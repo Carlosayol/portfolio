@@ -17,14 +17,15 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
+import { forwardRef } from "react";
 
-interface MyProps {
+interface Props {
   children: React.ReactNode;
   href: string;
   path: string;
 }
 
-const LinkItem = ({ href, path, children }: MyProps) => {
+const LinkItem = ({ href, path, children }: Props) => {
   const active = path === href;
   const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900");
   return (
@@ -39,6 +40,10 @@ const LinkItem = ({ href, path, children }: MyProps) => {
     </Link>
   );
 };
+
+const MenuLink = forwardRef((props: any, ref: React.Ref<HTMLAnchorElement>) => (
+  <Link ref={ref} as={NextLink} {...props} />
+));
 
 const Navbar = (props: { path: string }) => {
   const { path } = props;
@@ -84,18 +89,18 @@ const Navbar = (props: { path: string }) => {
             <Menu>
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
               <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
-                </NextLink>
-                <NextLink href="/resume" passHref>
-                  <MenuItem as={Link}>Resume</MenuItem>
-                </NextLink>
-                <NextLink href="/projects" passHref>
-                  <MenuItem as={Link}>Projects</MenuItem>
-                </NextLink>
-                <NextLink href="/contact" passHref>
-                  <MenuItem as={Link}>Contact</MenuItem>
-                </NextLink>
+                <MenuItem as={MenuLink} href="/">
+                  About
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/resume">
+                  Resume
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/projects">
+                  Projects
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/contact">
+                  Contact
+                </MenuItem>
               </MenuList>
             </Menu>
           </Box>
