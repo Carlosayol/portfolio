@@ -17,6 +17,7 @@ import { DownloadIcon } from "@chakra-ui/icons";
 
 import Section from "@/components/Section";
 import Paragraph from "@/components/Paragraph";
+import IconRetrieve from "@/components/IconRetrieve";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,7 +64,7 @@ const Home = () => {
               variant="ghost"
               fontSize="25px"
               aria-label="Github"
-              icon={<IoLogoGithub />}
+              icon={<IconRetrieve icon={"github"} />}
               colorScheme="teal"
             />
           </Link>

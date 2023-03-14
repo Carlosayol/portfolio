@@ -37,6 +37,12 @@ export default {
       name: 'type',
       title: 'Type',
       type: 'string',
+      options: {
+        list: [
+          {title: 'Work', value: 'work'},
+          {title: 'Education', value: 'education'},
+        ],
+      },
     },
   ],
 }
