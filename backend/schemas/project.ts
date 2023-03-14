@@ -35,7 +35,7 @@ export default {
       name: 'technologies',
       title: 'Technologies',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'reference', to: {type: 'skill'}}],
     },
     {
       name: 'features',
@@ -44,8 +44,8 @@ export default {
       of: [{type: 'string'}],
     },
     {
-      name: 'linkGithub',
-      title: 'LinkGithub',
+      name: 'urlGithub',
+      title: 'UrlGithub',
       type: 'url',
     },
   ],

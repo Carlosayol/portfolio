@@ -1,6 +1,6 @@
 export default {
-  name: 'aboutInfo',
-  title: 'AboutInfo',
+  name: 'about',
+  title: 'About',
   type: 'document',
   fields: [
     {
@@ -27,8 +27,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'Likes',
-      title: 'Name',
+      name: 'likes',
+      title: 'Likes',
+      type: 'array',
       of: [{type: 'string'}],
     },
     {
