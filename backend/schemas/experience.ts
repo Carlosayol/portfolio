@@ -4,18 +4,13 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'role',
-      title: 'Role',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
       name: 'location',
       title: 'Location',
-      type: 'string',
-    },
-    {
-      name: 'description',
-      title: 'Description',
       type: 'string',
     },
     {
@@ -34,15 +29,10 @@ export default {
       type: 'boolean',
     },
     {
-      name: 'type',
-      title: 'Type',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Work', value: 'work'},
-          {title: 'Education', value: 'education'},
-        ],
-      },
+      name: 'points',
+      title: 'Points',
+      type: 'array',
+      of: [{type: 'string'}],
     },
   ],
 }
