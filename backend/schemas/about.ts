@@ -42,11 +42,5 @@ export default {
       title: 'Phone',
       type: 'string',
     },
-    {
-      name: 'socials',
-      title: 'Socials',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'social'}}],
-    },
   ],
 }
