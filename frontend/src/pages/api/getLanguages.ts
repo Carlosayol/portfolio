@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { groq } from "next-sanity";
 
 import { sanityClient } from "../../../sanity";
-import { Experience, Language } from "types";
+import { Language } from "types";
 
 const query = groq`
   *[_type == "language"]
