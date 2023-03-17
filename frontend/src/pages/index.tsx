@@ -1,14 +1,22 @@
 import { Inter } from "@next/font/google";
 import { Container } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
 
 import Section from "@/components/Section";
 import Paragraph from "@/components/Paragraph";
 import AboutInfo from "@/components/AboutInfo";
 import Socials from "@/components/Socials";
+import { About, Social } from "types";
+import { useFetch } from "@/utils/useFetch";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const Home = () => {
+interface Props {
+  about: About;
+  socials: Social[];
+}
+
+const Home = ({ about, socials }: Props) => {
   return (
     <Container>
       <AboutInfo />
@@ -33,4 +41,16 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const about = await useFetch<About>("getAbout");
+  const socials = await useFetch<Social[]>("getSocials");
+
+  return {
+    props: {
+      about,
+      socials,
+    },
+  };
+};
 
