@@ -5,14 +5,15 @@ import { sanityClient } from "../../../sanity";
 import { About } from "types";
 
 const query = groq`
-  *[_type == "project"][0]
+  *[_type == "about"][0]
 `;
 
 interface Data {
-  about: About;
+  data: About;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const about: About = await sanityClient.fetch(query);
-  res.status(200).json({ about });
+  const data: About = await sanityClient.fetch(query);
+  console.log(data);
+  res.status(200).json({ data });
 }

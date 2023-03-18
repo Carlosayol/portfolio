@@ -9,10 +9,10 @@ const query = groq`
 `;
 
 interface Data {
-  education: Education[];
+  data: Education[];
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const education: Education[] = await sanityClient.fetch(query);
-  res.status(200).json({ education });
+  const data: Education[] = await sanityClient.fetch(query);
+  res.status(200).json({ data });
 }

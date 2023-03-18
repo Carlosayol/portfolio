@@ -12,10 +12,10 @@ const query = groq`
 `;
 
 interface Data {
-  projects: Project[];
+  data: Project[];
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const projects: Project[] = await sanityClient.fetch(query);
-  res.status(200).json({ projects });
+  const data: Project[] = await sanityClient.fetch(query);
+  res.status(200).json({ data });
 }

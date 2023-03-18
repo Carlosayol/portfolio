@@ -9,10 +9,10 @@ const query = groq`
 `;
 
 interface Data {
-  experiences: Experience[];
+  data: Experience[];
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const experiences: Experience[] = await sanityClient.fetch(query);
-  res.status(200).json({ experiences });
+  const data: Experience[] = await sanityClient.fetch(query);
+  res.status(200).json({ data });
 }

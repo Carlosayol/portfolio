@@ -9,10 +9,10 @@ const query = groq`
 `;
 
 interface Data {
-  socials: Social[];
+  data: Social[];
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const socials: Social[] = await sanityClient.fetch(query);
-  res.status(200).json({ socials });
+  const data: Social[] = await sanityClient.fetch(query);
+  res.status(200).json({ data });
 }
