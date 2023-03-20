@@ -1,20 +1,21 @@
 import { Badge, Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { Language } from "types";
 
-const Languages = () => {
+interface Props {
+  languages: Language[];
+}
+
+const Languages = ({ languages }: Props) => {
   return (
     <SimpleGrid columns={1} spacingY={2}>
-      <Flex alignItems="center">
-        <Text fontSize={18}>Spanish</Text>
-        <Badge colorScheme="teal" mx={6}>
-          Native
-        </Badge>
-      </Flex>
-      <Flex alignItems="center">
-        <Text fontSize={18}>English</Text>
-        <Badge colorScheme="teal" mx={6}>
-          Advanced
-        </Badge>
-      </Flex>
+      {languages.map((language) => (
+        <Flex alignItems="center" key={language._id}>
+          <Text fontSize={18}>{language.title}</Text>
+          <Badge colorScheme="teal" mx={6}>
+            {language.level}
+          </Badge>
+        </Flex>
+      ))}
     </SimpleGrid>
   );
 };

@@ -1,8 +1,15 @@
 import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 
-import ResumeCard from "@/components/ResumeCard";
+import { Education, Experience } from "types";
+import EducationCard from "@/components/EducationCard";
+import ExperienceCard from "@/components/ExperienceCard";
 
-const ResumeInfo = () => {
+interface Props {
+  experiences: Experience[];
+  education: Education[];
+}
+
+const ResumeInfo = ({ experiences, education }: Props) => {
   return (
     <Box>
       <SimpleGrid columns={2} gap={2}>
@@ -11,18 +18,11 @@ const ResumeInfo = () => {
             Experience
           </Heading>
           <VStack spacing={6} align="stretch">
-            <ResumeCard
-              duration="2016 - present"
-              title="Test"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              location="Colombia"
-            />
-            <ResumeCard
-              duration="2016 - 2022"
-              title="Test 2"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              location="Canada"
-            />
+            {experiences
+              .sort((a, b) => +new Date(b.dateStarted) - +new Date(a.dateStarted))
+              .map((experience) => (
+                <ExperienceCard key={experience._id} experience={experience} />
+              ))}
           </VStack>
         </Box>
         <Box>
@@ -30,12 +30,9 @@ const ResumeInfo = () => {
             Education
           </Heading>
           <VStack spacing={4} align="stretch">
-            <ResumeCard
-              duration="2016 - 2022"
-              title="Test"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              location="Colombia"
-            />
+            {education.map((edu) => (
+              <EducationCard key={edu._id} education={edu} />
+            ))}
           </VStack>
         </Box>
       </SimpleGrid>
