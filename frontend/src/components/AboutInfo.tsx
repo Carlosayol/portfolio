@@ -1,13 +1,20 @@
 import { Box, Flex, Heading, Image, useColorModeValue } from "@chakra-ui/react";
 
-const AboutInfo = () => {
+import { urlFor } from "../../sanity";
+import { About } from "types";
+
+interface Props {
+  about: About;
+}
+
+const AboutInfo = ({ about }: Props) => {
   return (
     <Box display={{ md: "flex" }} mb={12}>
       <Box flexGrow={1}>
         <Heading as="h2" variant="page title">
-          Carlos Ayala
+          {about.name}
         </Heading>
-        <p>Software Engineer | Full Stack Developer</p>
+        <p>{about.role}</p>
       </Box>
       <Flex flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} justifyContent="center">
         <Image
@@ -17,7 +24,7 @@ const AboutInfo = () => {
           maxWidth="100px"
           display="inline-block"
           borderRadius="full"
-          src="images/carlos.jpg"
+          src={urlFor(about.heroImage).url()}
           alt="Profile Image"
         />
       </Flex>

@@ -1,4 +1,4 @@
-import { IoLogoGithub } from "react-icons/io5";
+import { IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from "react-icons/io5";
 import { BiErrorCircle } from "react-icons/bi";
 
 interface Props {
@@ -8,6 +8,9 @@ interface Props {
 const IconRetrieve = ({ icon }: Props) => {
   const mapIcons = new Map([
     ["github", <IoLogoGithub />],
+    ["linkedin", <IoLogoLinkedin />],
+    ["instagram", <IoLogoInstagram />],
+    ["discord", <IoLogoDiscord />],
     ["default", <BiErrorCircle />],
   ]);
 

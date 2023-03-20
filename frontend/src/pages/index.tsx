@@ -19,7 +19,7 @@ interface Props {
 const Home = ({ about, socials }: Props) => {
   return (
     <Container>
-      <AboutInfo />
+      <AboutInfo about={about} />
       <Section title={"About Me"}>
         <Paragraph>{about.profile}</Paragraph>
       </Section>
@@ -27,7 +27,7 @@ const Home = ({ about, socials }: Props) => {
         <Paragraph>{about.likes.join(", ")}</Paragraph>
       </Section>
       <Section title={"Social Media"}>
-        <Socials />
+        <Socials socials={socials} />
       </Section>
     </Container>
   );
