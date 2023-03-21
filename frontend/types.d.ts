@@ -13,11 +13,18 @@ interface Image {
   };
 }
 
-enum SkillLevel {
+export enum SkillLevel {
   Expert = "expert",
   Proficient = "proficient",
   Beginner = "beginner",
   WantToLearn = "want_to_learn",
+}
+
+export enum SkillRank {
+  Expert = 0,
+  Proficient = 1,
+  Beginner = 2,
+  WantToLearn = 3,
 }
 
 export interface About extends SanitiyBody {

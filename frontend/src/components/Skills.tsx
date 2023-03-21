@@ -1,41 +1,59 @@
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 
-import Skill from "@/components/Skill";
+import SkillIcon from "@/components/SkillIcon";
+import { Skill, SkillLevel, SkillRank } from "../../types.d";
 
-const Skills = () => {
+interface Props {
+  skills: Skill[];
+}
+
+type SkillSet = {
+  [x in SkillLevel]: SkillEntry;
+};
+
+type SkillEntry = {
+  skills: Skill[];
+  rank: number;
+};
+
+const calculateSkillSet = (skills: Skill[]): Partial<SkillSet> => {
+  const skillSet: Partial<SkillSet> = {};
+  skillSet.expert = { rank: SkillRank.Expert, skills: skills.filter((skill) => skill.level === SkillLevel.Expert) };
+  skillSet.proficient = {
+    rank: SkillRank.Proficient,
+    skills: skills.filter((skill) => skill.level === SkillLevel.Proficient),
+  };
+  skillSet.beginner = {
+    rank: SkillRank.Beginner,
+    skills: skills.filter((skill) => skill.level === SkillLevel.Beginner),
+  };
+  skillSet.want_to_learn = {
+    rank: SkillRank.WantToLearn,
+    skills: skills.filter((skill) => skill.level === SkillLevel.WantToLearn),
+  };
+
+  return skillSet;
+};
+
+const Skills = ({ skills }: Props) => {
+  const skillSet = calculateSkillSet(skills);
+
   return (
     <Box>
-      <Heading as="h3" fontSize={20} my={4}>
-        Expert
-      </Heading>
-      <SimpleGrid columns={4} gap={2} spacingY={5}>
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-      </SimpleGrid>
-      <Heading as="h3" fontSize={20} my={4}>
-        Proficient
-      </Heading>
-      <SimpleGrid columns={4} gap={2} spacingY={5}>
-        <Skill />
-      </SimpleGrid>
-      <Heading as="h3" fontSize={20} my={4}>
-        Beginner
-      </Heading>
-      <SimpleGrid columns={4} gap={2} spacingY={5}>
-        <Skill />
-        <Skill />
-      </SimpleGrid>
-      <Heading as="h3" fontSize={20} my={4}>
-        Want to learn
-      </Heading>
-      <SimpleGrid columns={4} gap={2} spacingY={5}>
-        <Skill />
-        <Skill />
-      </SimpleGrid>
+      {Object.entries(skillSet).map(([key, value], index) => {
+        return (
+          <Box key={index}>
+            <Heading as="h3" fontSize={20} my={6} textTransform="capitalize">
+              {key.replaceAll("_", " ")}
+            </Heading>
+            <SimpleGrid columns={4} gap={2} spacingY={8}>
+              {value.skills.map((skill) => (
+                <SkillIcon key={skill?._id} title={skill.title} slug={skill.slug} />
+              ))}
+            </SimpleGrid>
+          </Box>
+        );
+      })}
     </Box>
   );
 };

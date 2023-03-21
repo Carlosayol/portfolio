@@ -22,7 +22,7 @@ const Resume = ({ experiences, education, skills, languages }: Props) => {
         <ResumeInfo experiences={experiences} education={education} />
       </Section>
       <Section title={"Skills"}>
-        <Skills />
+        <Skills skills={skills} />
       </Section>
       <Section title={"Languages"}>
         <Languages languages={languages} />
