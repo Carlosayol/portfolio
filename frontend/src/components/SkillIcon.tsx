@@ -6,7 +6,6 @@ interface Props {
   slug: string;
 }
 
-// use icons from react icons
 const SkillIcon = ({ title, slug }: Props) => {
   return (
     <Box>
@@ -18,6 +17,8 @@ const SkillIcon = ({ title, slug }: Props) => {
           aria-label={title}
           icon={<IconRetrieve icon={slug} />}
           colorScheme="teal"
+          _hover={{ bg: "transparent" }}
+          _focus={{ bg: "transparent" }}
         />
       </Tooltip>
     </Box>
