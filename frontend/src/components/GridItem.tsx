@@ -18,7 +18,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => {
 export const ProjectGridItem = ({ children, id, title, thumbnail }) => {
   return (
     <Box w="100%" align="center" mb={6}>
-      <NextLink href={`/projects/${id}`}>
+      <NextLink href={{ pathname: `/projects/${id}`, query: { test: "hey" } }}>
         <LinkBox cursor="pointer">
           <Image src={thumbnail} alt={title} width="1280" height="640" className="grid-item-thumbnail" />
           <Text mt={2} fontSize={20}>

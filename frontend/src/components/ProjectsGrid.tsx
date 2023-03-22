@@ -1,6 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
 
-import githubThumb from "public/images/githubThumb.png";
 import { ProjectGridItem } from "@/components/GridItem";
 import { Project } from "types";
 import { urlFor } from "../../sanity";

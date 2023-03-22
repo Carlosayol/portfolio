@@ -1,11 +1,14 @@
 import { Box, Container, Heading, ListItem, SimpleGrid, UnorderedList } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 
 import Layout from "@/components/layouts/Article";
 import Paragraph from "@/components/Paragraph";
 import Title from "@/components/Title";
 
 const Work = () => {
+  const searchParams = useSearchParams();
+  console.log(searchParams.get("test"));
   const router = useRouter();
   const { pid } = router.query;
 
