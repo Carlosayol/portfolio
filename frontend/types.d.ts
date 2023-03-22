@@ -68,6 +68,7 @@ export interface Project extends SanitiyBody {
   technologies: Skill[];
   features: string[];
   urlGithub: string;
+  slug: string;
 }
 
 export interface Experience extends SanitiyBody {

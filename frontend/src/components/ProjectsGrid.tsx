@@ -2,19 +2,26 @@ import { SimpleGrid } from "@chakra-ui/react";
 
 import githubThumb from "public/images/githubThumb.png";
 import { ProjectGridItem } from "@/components/GridItem";
+import { Project } from "types";
+import { urlFor } from "../../sanity";
 
-const ProjectsGrid = () => {
+interface Props {
+  projects: Project[];
+}
+
+const ProjectsGrid = ({ projects }: Props) => {
   return (
     <SimpleGrid columns={[1, 1, 2]} gap={6}>
-      <ProjectGridItem id="reviewsFS" title="ReviewsFS" thumbnail={githubThumb}>
-        Write reviews about anything. Built with MERN Stack
-      </ProjectGridItem>
-      <ProjectGridItem id="polls" title="Polls" thumbnail={githubThumb}>
-        Create and vote in polls created by anyone. Built with Django
-      </ProjectGridItem>
-      <ProjectGridItem id="polls" title="Polls" thumbnail={githubThumb}>
-        Create and vote in polls created by anyone. Built with Django
-      </ProjectGridItem>
+      {projects.map((project) => (
+        <ProjectGridItem
+          key={project._id}
+          id={project.slug}
+          title={project.title}
+          thumbnail={urlFor(project.image).url()}
+        >
+          {project.briefDescription}
+        </ProjectGridItem>
+      ))}
     </SimpleGrid>
   );
 };

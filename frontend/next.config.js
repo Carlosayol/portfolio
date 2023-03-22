@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["upload.wikimedia.org"],
+    domains: ["cdn.sanity.io"],
   },
 };
 

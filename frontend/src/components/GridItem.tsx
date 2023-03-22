@@ -20,7 +20,7 @@ export const ProjectGridItem = ({ children, id, title, thumbnail }) => {
     <Box w="100%" align="center" mb={6}>
       <NextLink href={`/projects/${id}`}>
         <LinkBox cursor="pointer">
-          <Image src={thumbnail} alt={title} className="grid-item-thumbnail" placeholder="blur" />
+          <Image src={thumbnail} alt={title} width="1280" height="640" className="grid-item-thumbnail" />
           <Text mt={2} fontSize={20}>
             {title}
           </Text>
