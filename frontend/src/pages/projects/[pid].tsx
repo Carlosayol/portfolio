@@ -9,29 +9,25 @@ import Title from "@/components/Title";
 import { useFetch } from "@/utils/useFetch";
 import { Project } from "types";
 
-interface PathsProps {
-  pid: string;
+interface Props {
+  project: Project;
 }
 
-const Work = () => {
-  const searchParams = useSearchParams();
-  console.log(searchParams.get("test"));
-  const router = useRouter();
-  const { pid } = router.query;
-
+const Work = ({ project }: Props) => {
   return (
     <Layout title="ReviewsFS">
       <Container mt={{ base: 4, md: 0 }}>
-        <Title id={pid ?? ""} />
-        <Paragraph>Write reviews about anything</Paragraph>
+        <Title id={project.title} year={project.year} url={project.urlGithub} />
+        <Paragraph>{project.description}</Paragraph>
         <SimpleGrid columns={2} gap={2} my={6}>
           <Box>
             <Heading as="h3" fontSize={20} my={2}>
               Tech-Stack
             </Heading>
             <UnorderedList p={2}>
-              <ListItem>Javascript</ListItem>
-              <ListItem>ReactJS</ListItem>
+              {project.technologies.map((tech) => (
+                <ListItem key={tech._id}>{tech.title}</ListItem>
+              ))}
             </UnorderedList>
           </Box>
           <Box>
@@ -39,10 +35,9 @@ const Work = () => {
               Features
             </Heading>
             <UnorderedList p={2}>
-              <ListItem>Lorem ipsum dolor sit amet</ListItem>
-              <ListItem>Consectetur adipiscing elit</ListItem>
-              <ListItem>Integer molestie lorem at massa</ListItem>
-              <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+              {project.features.map((feat, i) => (
+                <ListItem key={i}>{feat}</ListItem>
+              ))}
             </UnorderedList>
           </Box>
         </SimpleGrid>
@@ -67,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
-  const project = await useFetch<Project>();
+  const project = await useFetch<Project>(`projects/${params?.pid}`);
   return {
     props: {
       project,

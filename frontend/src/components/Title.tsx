@@ -5,9 +5,11 @@ import { IoLogoGithub } from "react-icons/io5";
 
 interface Props {
   id: string | string[];
+  year: string;
+  url: string;
 }
 
-const Title = ({ id }: Props) => {
+const Title = ({ id, year, url }: Props) => {
   return (
     <Flex alignItems="center" mb={4}>
       <NextLink href="/projects">
@@ -20,9 +22,9 @@ const Title = ({ id }: Props) => {
       <Heading as="h3" fontSize={20} textTransform="capitalize" mr={2}>
         {id}
       </Heading>
-      <Badge colorScheme="teal">2016</Badge>
+      <Badge colorScheme="teal">{year}</Badge>
       <Spacer />
-      <Link href="https://github.com/Carlosayol" target="_blank">
+      <Link href={url} target="_blank">
         <IconButton variant="ghost" fontSize="25px" aria-label="Github" icon={<IoLogoGithub />} colorScheme="teal" />
       </Link>
     </Flex>
