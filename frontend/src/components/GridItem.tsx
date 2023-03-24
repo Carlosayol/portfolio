@@ -15,10 +15,17 @@ export const GridItem = ({ children, href, title, thumbnail }) => {
   </Box>;
 };
 
-export const ProjectGridItem = ({ children, id, title, thumbnail }) => {
+interface ProjectGridItemProps {
+  children: React.ReactNode;
+  id: string;
+  title: string;
+  thumbnail: string;
+}
+
+export const ProjectGridItem = ({ children, id, title, thumbnail }: ProjectGridItemProps) => {
   return (
     <Box w="100%" align="center" mb={6}>
-      <NextLink href={{ pathname: `/projects/${id}`, query: { test: "hey" } }}>
+      <NextLink href={{ pathname: `/projects/${id}` }}>
         <LinkBox cursor="pointer">
           <Image src={thumbnail} alt={title} width="1280" height="640" className="grid-item-thumbnail" />
           <Text mt={2} fontSize={20}>

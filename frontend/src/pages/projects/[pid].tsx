@@ -1,10 +1,17 @@
 import { Box, Container, Heading, ListItem, SimpleGrid, UnorderedList } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import Layout from "@/components/layouts/Article";
 import Paragraph from "@/components/Paragraph";
 import Title from "@/components/Title";
+import { useFetch } from "@/utils/useFetch";
+import { Project } from "types";
+
+interface PathsProps {
+  pid: string;
+}
 
 const Work = () => {
   const searchParams = useSearchParams();
@@ -45,3 +52,26 @@ const Work = () => {
 };
 
 export default Work;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await useFetch<Project[]>("projects");
+  const paths = projects.map((project) => ({
+    params: { pid: project.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  const project = await useFetch<Project>();
+  return {
+    props: {
+      project,
+    },
+    revalidate: 1000,
+  };
+};

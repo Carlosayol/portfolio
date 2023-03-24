@@ -34,10 +34,10 @@ const Resume = ({ experiences, education, skills, languages }: Props) => {
 export default Resume;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const experiences = await useFetch<Experience[]>("getExperience");
-  const education = await useFetch<Education[]>("getEducation");
-  const skills = await useFetch<Skill[]>("getSkills");
-  const languages = await useFetch<Language[]>("getLanguages");
+  const experiences = await useFetch<Experience[]>("experiences");
+  const education = await useFetch<Education[]>("education");
+  const skills = await useFetch<Skill[]>("skills");
+  const languages = await useFetch<Language[]>("languages");
 
   return {
     props: {

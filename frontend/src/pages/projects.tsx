@@ -23,7 +23,7 @@ const Projects = ({ projects }: Props) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await useFetch<Project[]>("getProjects");
+  const projects = await useFetch<Project[]>("projects");
   return {
     props: {
       projects,

@@ -36,8 +36,8 @@ const Home = ({ about, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await useFetch<About>("getAbout");
-  const socials = await useFetch<Social[]>("getSocials");
+  const about = await useFetch<About>("about");
+  const socials = await useFetch<Social[]>("socials");
 
   return {
     props: {
