@@ -8,9 +8,10 @@ import IconRetrieve from "@/components/IconRetrieve";
 
 interface Props {
   socials: Social[];
+  cvUrl: string;
 }
 
-const Socials = ({ socials }: Props) => {
+const Socials = ({ socials, cvUrl }: Props) => {
   return (
     <Box>
       <HStack px={10} justifyContent="space-between">
@@ -27,7 +28,13 @@ const Socials = ({ socials }: Props) => {
         ))}
       </HStack>
       <Flex my={4} justifyContent="center">
-        <Button as={NextLink} href="/works" scroll={false} rightIcon={<DownloadIcon />} colorScheme="teal">
+        <Button
+          as={NextLink}
+          href={`${cvUrl}?dl=Carlos_CV.pdf`}
+          scroll={false}
+          rightIcon={<DownloadIcon />}
+          colorScheme="teal"
+        >
           Download CV
         </Button>
       </Flex>

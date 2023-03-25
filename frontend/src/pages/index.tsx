@@ -27,7 +27,7 @@ const Home = ({ about, socials }: Props) => {
         <Paragraph>{about.likes.join(", ")}</Paragraph>
       </Section>
       <Section title={"Social Media"}>
-        <Socials socials={socials} />
+        <Socials socials={socials} cvUrl={about.cvURL} />
       </Section>
     </Container>
   );

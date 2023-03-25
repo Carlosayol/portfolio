@@ -5,7 +5,10 @@ import { sanityClient } from "../../../sanity";
 import { About } from "types";
 
 const query = groq`
-  *[_type == "about"][0]
+  *[_type == "about"][0] {
+    ...,
+    "cvURL": cv.asset->url
+  }
 `;
 
 interface Data {

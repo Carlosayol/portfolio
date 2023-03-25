@@ -36,6 +36,7 @@ export interface About extends SanitiyBody {
   likes: string[];
   email: string;
   phone: string;
+  cvURL: string;
 }
 
 export interface Skill extends SanitiyBody {

@@ -42,5 +42,10 @@ export default {
       title: 'Phone',
       type: 'string',
     },
+    {
+      name: 'cv',
+      title: 'CV',
+      type: 'file',
+    },
   ],
 }

@@ -3,18 +3,6 @@ import { Box, Flex, LinkBox, LinkOverlay, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { Global } from "@emotion/react";
 
-export const GridItem = ({ children, href, title, thumbnail }) => {
-  <Box w="100%" align="center">
-    <LinkBox cursor="pointer">
-      <Image src={thumbnail} alt={title} className="grid-item-thumbnail" placeholder="blur" loading="lazy" />
-      <LinkOverlay href={href} target="_blank">
-        <Text mt={2}>{title}</Text>
-      </LinkOverlay>
-      <Text fontSize={14}>{children}</Text>
-    </LinkBox>
-  </Box>;
-};
-
 interface ProjectGridItemProps {
   children: React.ReactNode;
   id: string;
@@ -22,9 +10,28 @@ interface ProjectGridItemProps {
   thumbnail: string;
 }
 
+interface GridItemProps {
+  children: React.ReactNode;
+  href: string;
+  title: string;
+  thumbnail: string;
+}
+
+export const GridItem = ({ children, href, title, thumbnail }: GridItemProps) => {
+  <Flex w="100%" justify="center" textAlign="center">
+    <LinkBox cursor="pointer">
+      <Image src={thumbnail} alt={title} className="grid-item-thumbnail" placeholder="blur" loading="lazy" />
+      <LinkOverlay href={href} target="_blank">
+        <Text mt={2}>{title}</Text>
+      </LinkOverlay>
+      <Text fontSize={14}>{children}</Text>
+    </LinkBox>
+  </Flex>;
+};
+
 export const ProjectGridItem = ({ children, id, title, thumbnail }: ProjectGridItemProps) => {
   return (
-    <Box w="100%" align="center" mb={6}>
+    <Flex w="100%" justify="center" mb={6} textAlign="center">
       <NextLink href={{ pathname: `/projects/${id}` }}>
         <LinkBox cursor="pointer">
           <Image src={thumbnail} alt={title} width="1280" height="640" className="grid-item-thumbnail" />
@@ -34,7 +41,7 @@ export const ProjectGridItem = ({ children, id, title, thumbnail }: ProjectGridI
           <Text fontSize={14}>{children}</Text>
         </LinkBox>
       </NextLink>
-    </Box>
+    </Flex>
   );
 };
 
