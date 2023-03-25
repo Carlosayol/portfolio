@@ -2,7 +2,12 @@ import { AspectRatio, Box, Container, SimpleGrid, Text } from "@chakra-ui/react"
 
 import Info from "./Info";
 
-const Location = () => {
+interface Props {
+  phone: string;
+  email: string;
+}
+
+const Location = ({ phone, email }: Props) => {
   return (
     <Box>
       <AspectRatio ratio={16 / 9}>

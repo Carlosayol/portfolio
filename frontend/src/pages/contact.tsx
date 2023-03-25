@@ -3,12 +3,19 @@ import { Container } from "@chakra-ui/react";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import Location from "@/components/Location";
+import { About } from "types";
+import { useFetch } from "@/utils/useFetch";
+import { GetStaticProps } from "next";
 
-const Contact = () => {
+interface Props {
+  about: About;
+}
+
+const Contact = ({ about }: Props) => {
   return (
     <Container>
       <Section title={"Get In Touch"}>
-        <Location />
+        <Location phone={about.phone} email={about.email} />
       </Section>
       <Section title={"Contact Form"}>
         <ContactForm />
@@ -18,3 +25,14 @@ const Contact = () => {
 };
 
 export default Contact;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const about = await useFetch<About>("about");
+
+  return {
+    props: {
+      about,
+    },
+    revalidate: 1000,
+  };
+};
