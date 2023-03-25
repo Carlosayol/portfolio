@@ -12,12 +12,13 @@ import {
   MenuButton,
   IconButton,
   useColorModeValue,
+  LinkProps,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { forwardRef } from "react";
 
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
-import { forwardRef } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -41,7 +42,7 @@ const LinkItem = ({ href, path, children }: Props) => {
   );
 };
 
-const MenuLink = forwardRef((props: any, ref: React.Ref<HTMLAnchorElement>) => (
+const MenuLink = forwardRef((props: LinkProps, ref: React.Ref<HTMLAnchorElement>) => (
   <Link ref={ref} as={NextLink} {...props} />
 ));
 
@@ -58,7 +59,7 @@ const Navbar = (props: { path: string }) => {
       zIndex={1}
       {...props}
     >
-      <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
+      <Container display="flex" p={2} maxW="container.md">
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={"tighter"}>
             <Logo />
@@ -83,7 +84,7 @@ const Navbar = (props: { path: string }) => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1} align="right">
+        <Flex flex={1} justifyContent="right">
           <ThemeToggle />
           <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu>
@@ -104,7 +105,7 @@ const Navbar = (props: { path: string }) => {
               </MenuList>
             </Menu>
           </Box>
-        </Box>
+        </Flex>
       </Container>
     </Box>
   );
