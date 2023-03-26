@@ -1,11 +1,11 @@
 import { Container } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
 
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import Location from "@/components/Location";
 import { About } from "types";
 import { useFetch } from "@/utils/useFetch";
-import { GetStaticProps } from "next";
 
 interface Props {
   about: About;
