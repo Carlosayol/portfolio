@@ -1,12 +1,12 @@
 import { Container } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
 
 import ResumeInfo from "@/components/ResumeInfo";
 import Skills from "@/components/Skills";
 import Section from "@/components/Section";
 import Languages from "@/components/Languages";
 import { Education, Experience, Language, Skill } from "types";
-import { useFetch } from "@/utils/useFetch";
-import { GetStaticProps } from "next";
+import { axiosRequest } from "@/utils/requests";
 
 interface Props {
   experiences: Experience[];
@@ -34,10 +34,10 @@ const Resume = ({ experiences, education, skills, languages }: Props) => {
 export default Resume;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const experiences = await useFetch<Experience[]>("experiences");
-  const education = await useFetch<Education[]>("education");
-  const skills = await useFetch<Skill[]>("skills");
-  const languages = await useFetch<Language[]>("languages");
+  const experiences = await axiosRequest<Experience[]>("experiences");
+  const education = await axiosRequest<Education[]>("education");
+  const skills = await axiosRequest<Skill[]>("skills");
+  const languages = await axiosRequest<Language[]>("languages");
 
   return {
     props: {

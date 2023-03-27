@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import Section from "@/components/Section";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import { Project } from "types";
-import { useFetch } from "@/utils/useFetch";
+import { axiosRequest } from "@/utils/requests";
 
 interface Props {
   projects: Project[];
@@ -23,7 +23,7 @@ const Projects = ({ projects }: Props) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await useFetch<Project[]>("projects");
+  const projects = await axiosRequest<Project[]>("projects");
   return {
     props: {
       projects,

@@ -5,8 +5,7 @@ import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import Location from "@/components/Location";
 import { About } from "types";
-import { useFetch } from "@/utils/useFetch";
-
+import { axiosRequest } from "@/utils/requests";
 interface Props {
   about: About;
 }
@@ -27,7 +26,7 @@ const Contact = ({ about }: Props) => {
 export default Contact;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await useFetch<About>("about");
+  const about = await axiosRequest<About>("about");
 
   return {
     props: {

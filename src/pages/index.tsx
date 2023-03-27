@@ -7,7 +7,7 @@ import Paragraph from "@/components/Paragraph";
 import AboutInfo from "@/components/AboutInfo";
 import Socials from "@/components/Socials";
 import { About, Social } from "types";
-import { useFetch } from "@/utils/useFetch";
+import { axiosRequest } from "@/utils/requests";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,8 +36,8 @@ const Home = ({ about, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await useFetch<About>("about");
-  const socials = await useFetch<Social[]>("socials");
+  const about = await axiosRequest<About>("about");
+  const socials = await axiosRequest<Social[]>("socials");
 
   return {
     props: {

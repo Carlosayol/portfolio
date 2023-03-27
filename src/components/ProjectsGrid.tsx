@@ -2,7 +2,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 
 import { ProjectGridItem } from "@/components/GridItem";
 import { Project } from "types";
-import { urlFor } from "../../sanity";
+import { urlFor } from "@/libs/sanity";
 
 interface Props {
   projects: Project[];
