@@ -5,7 +5,8 @@ import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import Location from "@/components/Location";
 import { About } from "types";
-import { axiosRequest } from "@/utils/requests";
+import { sanityClient } from "@/utils/sanity";
+import { aboutQuery } from "@/utils/groqOperations/about";
 interface Props {
   about: About;
 }
@@ -26,7 +27,7 @@ const Contact = ({ about }: Props) => {
 export default Contact;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await axiosRequest<About>("about");
+  const about: About = await sanityClient.fetch(aboutQuery);
 
   return {
     props: {

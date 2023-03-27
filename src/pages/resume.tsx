@@ -6,7 +6,11 @@ import Skills from "@/components/Skills";
 import Section from "@/components/Section";
 import Languages from "@/components/Languages";
 import { Education, Experience, Language, Skill } from "types";
-import { axiosRequest } from "@/utils/requests";
+import { sanityClient } from "@/utils/sanity";
+import { experiencesQuery } from "@/utils/groqOperations/experiences";
+import { educationQuery } from "@/utils/groqOperations/education";
+import { skillsQuery } from "@/utils/groqOperations/skills";
+import { languagesQuery } from "@/utils/groqOperations/languages";
 
 interface Props {
   experiences: Experience[];
@@ -34,10 +38,10 @@ const Resume = ({ experiences, education, skills, languages }: Props) => {
 export default Resume;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const experiences = await axiosRequest<Experience[]>("experiences");
-  const education = await axiosRequest<Education[]>("education");
-  const skills = await axiosRequest<Skill[]>("skills");
-  const languages = await axiosRequest<Language[]>("languages");
+  const experiences: Experience[] = await sanityClient.fetch(experiencesQuery);
+  const education: Education[] = await sanityClient.fetch(educationQuery);
+  const skills: Skill[] = await sanityClient.fetch(skillsQuery);
+  const languages: Language[] = await sanityClient.fetch(languagesQuery);
 
   return {
     props: {

@@ -7,7 +7,9 @@ import Paragraph from "@/components/Paragraph";
 import AboutInfo from "@/components/AboutInfo";
 import Socials from "@/components/Socials";
 import { About, Social } from "types";
-import { axiosRequest } from "@/utils/requests";
+import { sanityClient } from "@/utils/sanity";
+import { aboutQuery } from "@/utils/groqOperations/about";
+import { socialsQuery } from "@/utils/groqOperations/socials";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,8 +38,8 @@ const Home = ({ about, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await axiosRequest<About>("about");
-  const socials = await axiosRequest<Social[]>("socials");
+  const about: About = await sanityClient.fetch(aboutQuery);
+  const socials: Social[] = await sanityClient.fetch(socialsQuery);
 
   return {
     props: {

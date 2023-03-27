@@ -6,6 +6,8 @@ import Paragraph from "@/components/Paragraph";
 import Title from "@/components/Title";
 import { axiosRequest } from "@/utils/requests";
 import { Project } from "types";
+import { sanityClient } from "@/utils/sanity";
+import { projectsQuery, getProject } from "@/utils/groqOperations/projects";
 
 interface Props {
   project: Project;
@@ -47,7 +49,7 @@ const Work = ({ project }: Props) => {
 export default Work;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await axiosRequest<Project[]>("projects");
+  const projects: Project[] = await sanityClient.fetch(projectsQuery);
   const paths = projects.map((project) => ({
     params: { pid: project.slug },
   }));
@@ -59,8 +61,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  const project = await axiosRequest<Project>(`projects/${params?.pid}`);
+  const { pid } = context.params as { pid: string };
+  const project: Project = await sanityClient.fetch(getProject(pid));
 
   return {
     props: {

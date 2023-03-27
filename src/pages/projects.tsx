@@ -5,6 +5,8 @@ import Section from "@/components/Section";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import { Project } from "types";
 import { axiosRequest } from "@/utils/requests";
+import { sanityClient } from "@/utils/sanity";
+import { projectsQuery } from "@/utils/groqOperations/projects";
 
 interface Props {
   projects: Project[];
@@ -23,7 +25,8 @@ const Projects = ({ projects }: Props) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await axiosRequest<Project[]>("projects");
+  const projects: Project[] = await sanityClient.fetch(projectsQuery);
+
   return {
     props: {
       projects,

@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Image, useColorModeValue } from "@chakra-ui/react";
 
-import { urlFor } from "@/libs/sanity";
+import { urlFor } from "@/utils/sanity";
 import { About } from "types";
 
 interface Props {
