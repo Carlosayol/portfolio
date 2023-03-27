@@ -56,13 +56,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const project = await useFetch<Project>(`projects/${params?.pid}`);
+
   return {
     props: {
       project,
