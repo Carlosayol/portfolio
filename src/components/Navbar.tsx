@@ -46,6 +46,8 @@ const MenuLink = forwardRef((props: LinkProps, ref: React.Ref<HTMLAnchorElement>
   <Link ref={ref} as={NextLink} {...props} />
 ));
 
+MenuLink.displayName = "MenuLink";
+
 const Navbar = (props: { path: string }) => {
   const { path } = props;
 

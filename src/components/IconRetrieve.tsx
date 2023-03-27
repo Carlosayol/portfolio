@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { IoLogoDiscord, IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from "react-icons/io5";
 import { BiErrorCircle } from "react-icons/bi";
 import { FaJava } from "react-icons/fa";
